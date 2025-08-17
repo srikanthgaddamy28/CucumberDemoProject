@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="FlipkartAutomationSuite" verbose="1" parallel="methods" thread-count="3">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="local"/>
+    
+    <listeners>
+        <listener class-name="com.sri.automation.listeners.ExtentReportListener"/>
+        <listener class-name="com.sri.automation.listeners.ScreenshotListener"/>
+        <listener class-name="com.sri.automation.listeners.WordDocumentListener"/>
+    </listeners>
+
+    <test name="FlipkartSmokeTests" preserve-order="true">
+        <classes>
+            <class name="com.sri.automation.runners.CucumberTestRunner"/>
+        </classes>
+    </test>
+
+    <test name="FlipkartRegressionTests" preserve-order="true" enabled="false">
+        <classes>
+            <class name="com.sri.automation.runners.CucumberRegressionRunner"/>
+        </classes>
+    </test>
+</suite>
