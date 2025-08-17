@@ -1,0 +1,76 @@
+automation:
+  browser:
+    default: chrome
+    headless: false
+    timeout:
+      implicit: 10
+      explicit: 30
+      page-load: 60
+    window:
+      maximize: true
+      size:
+        width: 1920
+        height: 1080
+  
+  environment:
+    base-url: "https://www.flipkart.com"
+    test-data-path: "src/test/resources/testdata"
+    
+  execution:
+    parallel: true
+    thread-count: 3
+    retry-count: 1
+    
+  reporting:
+    extent:
+      enabled: true
+      path: "test-output/extent-reports"
+      theme: "standard"
+    screenshots:
+      enabled: true
+      path: "test-output/screenshots"
+      on-failure: true
+      on-success: false
+    word-documents:
+      enabled: true
+      path: "test-output/word-reports"
+      include-screenshots: true
+    cucumber:
+      enabled: true
+      path: "test-output/cucumber-reports"
+      
+  logging:
+    level: INFO
+    file-path: "test-output/logs"
+    console-output: true
+    
+test-data:
+  users:
+    valid-user:
+      email: "test@example.com"
+      password: "testpassword"
+    invalid-user:
+      email: "invalid@example.com"
+      password: "wrongpassword"
+      
+  products:
+    search-terms:
+      - "iPhone 15"
+      - "Samsung Galaxy S24"
+      - "laptop"
+      - "headphones"
+    categories:
+      - "Electronics"
+      - "Fashion"
+      - "Home & Kitchen"
+      
+  filters:
+    price-ranges:
+      - "₹10,000 - ₹20,000"
+      - "₹20,000 - ₹40,000"
+      - "₹40,000 - ₹80,000"
+    brands:
+      - "Apple"
+      - "Samsung"
+      - "HP"
+      - "Dell"
